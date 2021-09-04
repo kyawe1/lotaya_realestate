@@ -1,0 +1,9 @@
+db.sqlite3
+core/__pycache__
+core/migrations
+apis/__pycache__
+apis/migrations
+authenticate/__pycache__
+authenticate/migrations
+realestate/__pycache__
+realestate/migrations
