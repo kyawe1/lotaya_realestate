@@ -1,6 +1,82 @@
 {% extends "base.html" %}
 {% block title%}
-    {{title}}
+{{title}}
 {% endblock %}
 {% block body %}
+
+<div class='container flex-shrink-0'>
+    <div class='display-2 opacity-50 text-center p-3 m-2'>
+        Interested Items
+    </div>
+    <div class='row-cols-1'>
+       {% for i in list%}
+        <div class='col'>
+            <div class='d-lg-flex m-2 p-2 shadow-sm  justify-content-lg-evenly flex-shrink-0'>
+                <div class='col-md-7 flex-shrink-0 m-2'>
+                    <img src='{{i.coverimage.url}}' class='img-fluid'>
+                </div>
+                <div class='d-block my-auto'>
+                    <div class='my-3'>
+                        <div class='d-inline my-3'>
+                            <ul>
+                                <li class='d-inline bg-success p-2 rounded-3 text-light'><i
+                                        class="bi bi-check-lg mx-2"></i>Avaliable</li>
+                                <li class='d-inline bg-warning p-2 rounded-3'>
+                                    {{i.product.sale_type}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <table border=0 class='table table-borderless '>
+                        <tbody>
+                            <tr>
+                                <td class='h5 text-center' colspan='2'>
+                                    {{i.product.name}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="bi bi-house-fill mx-2"></i>Type
+                                </td>
+                                <td>
+                                    {{i.product.type}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="bi bi-tag-fill mx-2"></i> Price
+                                </td>
+                                <td>
+                                    {{i.product.price}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="bi bi-geo-alt-fill mx-2"></i>Address
+                                </td>
+                                <td>
+                                    {{i.product.address}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class='d-block mx-auto'>
+                        <a href='{% url "core:detail" i.product.name %}'><button
+                                class='btn btn-info py-2 my-2'><i class="bi bi-info-circle me-lg-2 m-sm-1"></i> More
+                                info
+                            </button></a>
+                        <button class='btn btn-primary py-2 my-2'><i
+                                class="bi bi-person-check me-lg-2 m-sm-1"></i>Check</button>
+                        <a href='/interested/delete?interested_id=<?php echo $a->id ?>'>
+                            <button class='btn btn-warning py-2 my-2' name='btn-delete'><i
+                                    class="bi bi-trash me-lg-2 m-sm-1"></i>Delete</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        {%endfor%}
+        </div>
+</div>
 {% endblock %}

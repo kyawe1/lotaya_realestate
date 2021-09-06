@@ -9,3 +9,6 @@ realestate/__pycache__
 realestate/migrations
 interest/migrations
 interest/__pycache__
+templates/core/layout_sample.html
+media/
+media

@@ -11,18 +11,18 @@
         </button>
         <div class='collapse navbar-collapse' id='collapseable'>
             <ul class='navbar-nav ms-auto'>
-                <li class='nav-item mx-2'><a href='/home' class='nav-link text-white'>Home</a></li>
-                <li class='nav-item mx-2'><a href='/about' class='nav-link text-white'>About</a></li>
-                <li class='nav-item mx-2'><a href='/showroom' class='nav-link text-white'>Rent</a></li>
-                <li class='nav-item mx-2'><a href='/showroom' class='nav-link text-white'>Buy</a></li>
-                <li class='nav-item mx-2'><a href='/interested' class='nav-link text-white'>Interest</a></li>
+                <li class='nav-item mx-2'><a href='{% url "core:home" %}' class='nav-link text-white'>Home</a></li>
+                <li class='nav-item mx-2'><a href='{% url "core:about" %}' class='nav-link text-white'>About</a></li>
+                <li class='nav-item mx-2'><a href='{% url "core:showroom" %}' class='nav-link text-white'>Rent</a></li>
+                <li class='nav-item mx-2'><a href='{% url "core:showroom" %}' class='nav-link text-white'>Buy</a></li>
+                <li class='nav-item mx-2'><a href='{% url "interest:list" %}' class='nav-link text-white'>Interest</a></li>
                 {% if not user.is_authenticated %}
                 <li class='nav-item'><a href='/login' class='nav-link text-white'><button
                             class=' btn btn-outline-light'>Login</button></a></li>
                 {% else %}
                 <li class='nav-item'><a href='/logout' class='nav-link text-white'><button
                             class=' btn btn-outline-light'>
-                            {{user.name}}
+                            {{user.username}}
                         </button></a></li>
                 {% endif%}
             </ul>
