@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'apis',
     'core',
+    'interest',
     'corsheaders',
-    'authenticate',
 ]
 
 MIDDLEWARE = [
@@ -146,4 +146,4 @@ STATICFILES_DIRS=[
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True

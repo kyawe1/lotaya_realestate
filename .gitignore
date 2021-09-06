@@ -7,3 +7,5 @@ authenticate/__pycache__
 authenticate/migrations
 realestate/__pycache__
 realestate/migrations
+interest/migrations
+interest/__pycache__
