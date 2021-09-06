@@ -22,6 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('core.urls')),
     path('api/v1/',include('apis.urls')),
-    # path('auth/',include('authenticate.urls')),
+    path('auth/',include('authenticate.urls',namespace='authenticate')),
     path('interest/',include('interest.urls')),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -15,12 +15,13 @@
                 <li class='nav-item mx-2'><a href='{% url "core:about" %}' class='nav-link text-white'>About</a></li>
                 <li class='nav-item mx-2'><a href='{% url "core:showroom" %}' class='nav-link text-white'>Rent</a></li>
                 <li class='nav-item mx-2'><a href='{% url "core:showroom" %}' class='nav-link text-white'>Buy</a></li>
-                <li class='nav-item mx-2'><a href='{% url "interest:list" %}' class='nav-link text-white'>Interest</a></li>
+                <li class='nav-item mx-2'><a href='#' class='nav-link text-white'>News</a></li>
                 {% if not user.is_authenticated %}
-                <li class='nav-item'><a href='/login' class='nav-link text-white'><button
+                <li class='nav-item'><a href='{% url "authenticate:login"%}' class='nav-link text-white'><button
                             class=' btn btn-outline-light'>Login</button></a></li>
                 {% else %}
-                <li class='nav-item'><a href='/logout' class='nav-link text-white'><button
+                <li class='nav-item mx-2'><a href='{% url "interest:list" %}' class='nav-link text-white'>Interest</a></li>
+                <li class='nav-item'><a href='{% url "authenticate:logout"%}' class='nav-link text-white'><button
                             class=' btn btn-outline-light'>
                             {{user.username}}
                         </button></a></li>

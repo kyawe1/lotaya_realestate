@@ -22,8 +22,16 @@ def showroom(request:HttpRequest):
     })
 
 def find(request:HttpRequest):
-    
-    array=Product.objects.filter()
+    array=[]
+    if request.GET.get('type'):
+        needle=request.GET.get('type')
+        array=Product.objects.filter(type=needle)
+    elif request.GET.get('name'):
+        needle=request.GET.get('name')
+        array=Product.objects.filter(name=needle)
+    elif request.GET.get('sale_type'):
+        needle=request.GET.get('sale_type') 
+        array=Product.objects.filter(sale_type=needle) 
     return render(request,'core/showroom.html',{'title':'Find','array':array})
 
 def detail(request:HttpRequest,slug:str):

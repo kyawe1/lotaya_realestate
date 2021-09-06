@@ -3,7 +3,7 @@
     <div class='card py-2'>
         <a href='{% url "core:detail" i.name %}' class='text-decoration-none text-black'>
             <div class='card-img'>
-                <img src="{{ i.coverphoto.url }}" class='img-fluid'>
+                <img src={{ i.coverphoto.url }} class='img-fluid'>
             </div>
             <div class='card-header text-center'>
                 {{i.type}}
