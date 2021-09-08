@@ -15,9 +15,9 @@
     <div class='row row-cols-md-2 row-cols-sm-1'>
         <div class='col-lg-3 col-md-4 col-sm-12 top-0 position-lg-sticky d-block '>
             <div class='m-2 p-1'>
-                <form class='' action='/find' method='GET'>
+                <form class='' action='{% url "core:find" %}' method='GET'>
                     <div class='input-group'>
-                        <input type="text" class='form-control' name='name'>
+                        <input type="text" class='form-control' name='any'>
                         <input type="submit" class='btn btn-primary' name='submit' value="Submit">
                     </div>
                 </form>
@@ -25,20 +25,18 @@
                 <div class=' display-5'>Categories</div>
                 <div class='opacity-50'>
                     <div class='p-2 m-1'>
-                        <span class='border border-1 border-dark p-1 rounded-2 lh-lg'>Apartment</span>
-                        <span class='border border-1 border-dark p-1 rounded-2 lh-lg'>Lone Chin</span>
-                        <span class='border border-1 border-dark p-1 rounded-2 lh-lg'>Housing</span>
-                        <span class='border border-1 border-dark p-1 rounded-2 lh-lg'>Condo</span>
+                        <a href='/find/?type=Apartment' ><span class='border border-1 border-dark p-1 rounded-2 lh-lg'>Apartment</span></a>
+                        <a href='/find/?type=lone chin' ><span class='border border-1 border-dark p-1 rounded-2 lh-lg'>Lone Chin</span></a>
+                        <a href='/find/?type=Housing' ><span class='border border-1 border-dark p-1 rounded-2 lh-lg'>Housing</span></a>
+                        <a href='/find/?type=Condo' ><span class='border border-1 border-dark p-1 rounded-2 lh-lg'>Condo</span></a>
                     </div>
                 </div>
 
                 <div class=' display-5'>Popular Search</div>
                 <div class='opacity-50'>
                     <div class='p-2 m-1'>
-                        <span class='border border-1 border-dark p-1 rounded-2 lh-lg'>Apartment</span>
-                        <span class='border border-1 border-dark p-1 rounded-2 lh-lg'>Lone Chin</span>
-                        <span class='border border-1 border-dark p-1 rounded-2 lh-lg'>Housing</span>
-                        <span class='border border-1 border-dark p-1 rounded-2 lh-lg'>Condo</span>
+                        <a href='/find/?sale_type=Rent' class='text-decoration-none'><span class='border border-1 border-dark p-1 rounded-2 lh-lg'>Apartment</span></a>
+                        <a href='/find/?sale_type=Sale' class='text-decoration-none'><span class='border border-1 border-dark p-1 rounded-2 lh-lg'>Lone Chin</span></a>
                     </div>
                 </div>
             </div>
