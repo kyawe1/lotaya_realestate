@@ -5,17 +5,27 @@ from django.http.request import HttpRequest
 # Create your views here.
 
 def home(request:HttpRequest):
+    # a=request.FILES
     return render(request, 'core/home.html',{'title':'Home'})
+    # print(request.GET)
+    # print(type(request.POST.get('sample')))
+    
+    # print(request.FILES)
+    # for i , j in request.FILES.items():
+    #     print(i)
+    #     with open('static/core/img/og.jpg', 'wb+' ) as ok:
+    #         ok.write(j.read())
 
 def about(request:HttpRequest):
     return render(request,'core/about.html',{'title':'About'})
 
 def showroom(request:HttpRequest):
     array=Product.objects.all()
-    o=request.user.interested.all()
     temp=[]
-    for i in o:
-        temp.append(i.product)
+    if request.user.is_authenticated:
+        o=request.user.interested.all()
+        for i in o:
+            temp.append(i.product)
     return render(request,"core/showroom.html",{
         'array':array,
         'interested_list':temp
@@ -26,8 +36,8 @@ def find(request:HttpRequest):
     if request.GET.get('type'):
         needle=request.GET.get('type')
         array=Product.objects.filter(type=needle)
-    elif request.GET.get('name'):
-        needle=request.GET.get('name')
+    elif request.GET.get('any'):
+        needle=request.GET.get('any')
         array=Product.objects.filter(name=needle)
     elif request.GET.get('sale_type'):
         needle=request.GET.get('sale_type') 
@@ -39,10 +49,9 @@ def detail(request:HttpRequest,slug:str):
     temp=False
     if (request.user.is_authenticated):
         temp=o.is_interested(request.user)
-    
-    more_interest = Product.objects.filter(type=o.type)
-    if (len(more_interest)>3):
-        more_interest=more_interest[0:3]
+        more_interest = Product.objects.filter(type=o.type)
+        if (len(more_interest)>3):
+            more_interest=more_interest[0:3]
     return render(request,'core/detail.html',{
         'obj':o,
         'array':more_interest,

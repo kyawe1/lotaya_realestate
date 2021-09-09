@@ -42,19 +42,19 @@
         </a>
         {% if user.is_authenticated %}
         {% if i in interested_list %}
-        <a href=''>
+        <a href='{% url "interest:delete" %}?p_id={{i.id}}'>
             <button class='btn btn-primary w-100' value={{i.id}}><i class="bi bi-star-fill mx-2"
                     name='btn-icon'></i>Interest</button>
         </a>
         {% else %}
-        <a href=''>
+        <a href='{% url "interest:create" %}?p_id={{i.id}}'>
             <button class='btn btn-primary w-100' value={{i.id}}><i class="bi bi-star mx-2"
                     name='btn-icon'></i>Interest</button>
         </a>
          {% endif %}
          {% else %}
-        <a href=''>
-            <button class='btn btn-primary w-100' value=<?php echo $m->id ?>><i class="bi bi-star mx-2"
+        <a href='{% url "interest:create" %}?p_id={{i.id}}'>
+            <button class='btn btn-primary w-100' value={{i.id}}><i class="bi bi-star mx-2"
                     name='btn-icon'></i>Interest</button>
         </a>
         {% endif %}

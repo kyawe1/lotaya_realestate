@@ -3,10 +3,11 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,login as django_login,get_user_model,logout as django_logout
 from django.http import HttpRequest
-from helper import checkloggedin
+from .helper import checkloggedin
 # Create your views here.
 
 def login(request:HttpRequest):
+    
     if checkloggedin(request):
         if request.method=="POST":
             if request.POST.get('password') and request.POST.get('username'):
