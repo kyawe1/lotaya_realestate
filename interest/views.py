@@ -25,8 +25,8 @@ def create(request:HttpRequest):
         if i :
             obj=Interest.objects.create(owner=request.user,product=i)
             obj.save()
-            return JsonResponse('ok')
-    return JsonResponse({'ok':'this is a book'})
+            return JsonResponse('ok',safe=False)
+    return JsonResponse({'ok':'this is a book'},safe=False)
     
 @login_required
 def delete(request:HttpRequest):
