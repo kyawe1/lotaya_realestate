@@ -23,5 +23,6 @@ urlpatterns = [
     path('',include('core.urls')),
     path('api/v1/',include('apis.urls')),
     path('auth/',include('authenticate.urls',namespace='authenticate')),
+    path('estate_admin/',include('fake_admin.urls')),
     path('interest/',include('interest.urls')),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

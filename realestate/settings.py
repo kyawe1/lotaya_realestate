@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'core',
     'interest',
     'corsheaders',
+    'fake_admin'
 ]
 
 MIDDLEWARE = [
@@ -151,4 +152,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CORS_ALLOW_ALL_ORIGINS = True
 
 
-AUTH_URL='auth/login'
+LOGIN_URL='/auth/login'

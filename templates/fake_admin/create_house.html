@@ -6,8 +6,9 @@
 {% block body %}
     <div class='container-fluid '>
         <div class='d-flex justify-content-center align-items-center h-100 p-3'>
-            <form class='p-5 m-4 rounded-3 bg-white' action='/create/product_process' method='POST'
+            <form class='p-5 m-4 rounded-3 bg-white' action='{% url "fake_admin:create_house"%}' method='POST'
                 enctype="multipart/form-data">
+                {% csrf_token %}
                 <div class='display-2 text-center mb-2 p-1'>
                     <img src='{% static "/core/img/house1.png" %}' class='' id='preview' height="370" wdith=300 />
                 </div>
@@ -38,19 +39,19 @@
                 </div>
                 <div class='mb-2'>
                     <label class='form-label'>Number Of Rooms</label>
-                    <input type="text" class='form-control placeholder-glow' name='numberofrooms'
+                    <input type="text" class='form-control placeholder-glow' name='number_of_rooms'
                         placeholder="Number Of Rooms">
                 </div>
                 <div class='mb-2'>
                     <label class='form-label'>Number Of Bedroom</label>
-                    <input type="text" class='form-control placeholder-glow' name='numberofbathroom'
+                    <input type="text" class='form-control placeholder-glow' name='number_of_bathrooms'
                         placeholder="Number Of Bedrooms">
                 </div>
                 <div class='mb-2 d-flex justify-content-between'>
                     <label class='form-label'>Funiture Ready</label>
                     <div>
-                        <input type="radio" name='funitureready' id='y' class='form-radio' value='Y'>Yes
-                        <input type="radio" name='funitureready' id='y' class='form-radio' value='N'>No
+                        <input type="radio" name='funiture_ready' id='y' class='form-radio' value='Y'>Yes
+                        <input type="radio" name='funiture_ready' id='y' class='form-radio' value='N'>No
                     </div>
                 </div>
                 <input type='submit' class='btn btn-primary w-100 p-1' value='Add'>
