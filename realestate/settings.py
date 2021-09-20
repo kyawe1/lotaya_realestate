@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'core',
     'interest',
     'corsheaders',
+    'fake_admin'
 ]
 
 MIDDLEWARE = [
@@ -154,6 +155,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CORS_ALLOW_ALL_ORIGINS = True
 
 
+<<<<<<< HEAD
 LOGIN_URL='auth/login'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 django_heroku.settings(locals())
+=======
+LOGIN_URL='/auth/login'
+>>>>>>> test_fake_admin

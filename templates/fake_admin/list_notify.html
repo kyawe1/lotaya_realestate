@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+   
+    <div class='container p-2'>
+        <table class='table'>
+            <tr>
+                <td>
+                    No
+                </td>
+                <td>
+                    Username
+                </td>
+                <td>
+                    Email
+                </td>
+                <td>
+    
+                </td>
+            </tr>
+    
+            {% for(a in array) : %}
+            <tr>
+                <td>
+                    <?php echo $i++ ?>
+                </td>
+                <td>
+                    {% %}
+                </td>
+                <td>
+                    <?php echo $a->email ?>
+                </td>
+                <td>
+                    <button class='btn btn-primary'>freeze</button>
+                    <button class='btn btn-primary'>delete</button>
+                </td>
+            </tr>
+            <?php endforeach ?>
+        </table>
+    
+    </div>
+
+{% endblock %}

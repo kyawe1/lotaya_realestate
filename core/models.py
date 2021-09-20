@@ -7,8 +7,8 @@ choices=[
 class Product(models.Model):
     name=models.CharField(max_length=50)
     type=models.CharField(max_length=50)
-    width=models.IntegerField()
-    length=models.IntegerField()
+    width=models.IntegerField(blank=True,null=True)
+    length=models.IntegerField(blank=True,null=True)
     number_of_rooms=models.PositiveIntegerField()
     number_of_bathrooms=models.PositiveIntegerField()
     funiture_ready=models.BooleanField(default=False)
@@ -26,8 +26,12 @@ class Product(models.Model):
         return self.name+'/'+filename
     coverphoto=models.ImageField(upload_to=get_upload_name)
 
+
     def set_slug(self):
         self.slug = self.name.replace(' ','_')
+
+   
+
 
     def is_interested(self,user):
         return True if self.interested.get(owner=user) else False

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}
+{{title}}
+{% endblock %}
+{% block body %}
+
+<div class='container p-2'>
+    <table class='table'>
+        <tr>
+            <td>
+                No
+            </td>
+            <td>
+                Name
+            </td>
+            <td>
+                Type
+            </td>
+            <td>
+                Adress
+            </td>
+            <td>
+                Sale Type
+            </td>
+            <td>
+                Number Of Rooms
+            </td>
+            <td>
+                Number Of Bathrooms
+            </td>
+            <td>
+                Funiture Ready
+            </td>
+        </tr>
+
+        {% for a in array %}
+        <tr>
+            <td>
+                No
+            </td>
+            <td>
+                {{a.name}}
+            </td>
+            <td>
+                {{a.type}}
+            </td>
+            <td>
+                {{a.address}}
+            </td>
+            <td>
+                {{a.sale_type}}
+            </td>
+            <td>
+                {{a.number_of_rooms}}
+            </td>
+            <td>
+                {{a.number_of_bathrooms}}
+            </td>
+            <td>
+                {% if a.funiture_ready %}
+                    Yes
+                {%else %}
+                    No
+                {% endif%}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+{% endblock %}

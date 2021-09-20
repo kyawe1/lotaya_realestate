@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{title}}
+{% endblock %}
+{% block body %}
+
+<div class='container p-2'>
+    {% if array %}
+    <table class='table'>
+        <tr>
+            <td>
+                No
+            </td>
+            <td>
+                Username
+            </td>
+            <td>
+                Email
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        
+        {% for a in array  %}
+        <tr>
+            <td>
+                {{ forloop.counter }}
+            </td>
+            <td>
+                {{ a.username }}
+            </td>
+            <td>
+                {{ a.email }}
+            </td>
+            <td>
+                <a href='{% url "fake_admin:freeze_user" s=a.id%}'>
+                <button class='btn btn-primary'>freeze</button>
+                </a>
+                <a href='{% url "fake_admin:delete_user" s=a.id%}'>
+                <button class='btn btn-primary'>delete</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+            Nothing to show
+        {% endif %}
+    </table>
+
+</div>
+
+{% endblock %}
